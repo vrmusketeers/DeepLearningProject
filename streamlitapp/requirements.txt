@@ -1,0 +1,2 @@
+dalle_pytorch==0.11.3
+wandb==0.10.29
