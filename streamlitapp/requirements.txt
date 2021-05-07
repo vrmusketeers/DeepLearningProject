@@ -1,2 +1,8 @@
 dalle_pytorch==0.11.3
 wandb==0.10.29
+matplotlib==3.4.1
+numpy==1.20.2
+pandas==2 0.0.0
+PIL==8.2.0
+torchvision==torchvision
+torch==1.8.1
