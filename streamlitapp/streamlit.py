@@ -16,7 +16,6 @@ os.environ['WANDB_API_KEY']='d74036002407b5a3ba2ad5be469b3793afde3eb2'
 import streamlit as st
 # To make things easier later, we're also importing numpy and pandas for
 # working with sample data.
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
