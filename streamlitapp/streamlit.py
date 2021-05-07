@@ -27,41 +27,51 @@ import torch
 import wandb
 
 
-# Download the artifact
-input_text = 'the first floor has two kitchen one living room two bathrooms three bedrooms.'
+# Downloading the artifact from wandb
+@st.cache
+def downloading_model():
+    run = wandb.init()
+    artifact = run.use_artifact('sjsu-cmpe-258-musketeers/cubicasa-dalle/trained-dalle:v5', type='model')
+    artifact_dir = artifact.download()
 
+# Load the downloaded dalle model for the floor plan generator
+@st.cache
+def loading_model():
+    loaded_obj = torch.load(str('./artifacts/trained-dalle:v5/dalle-final.pt'), map_location='cpu')
+    dalle_params, vae_params, weights = loaded_obj['hparams'], loaded_obj['vae_params'], loaded_obj['weights']
+    vae = DiscreteVAE(**vae_params)
+    dalle = DALLE(vae=vae, **dalle_params)
+    dalle.load_state_dict(weights)
+    return dalle
 
-run = wandb.init()
-artifact = run.use_artifact('sjsu-cmpe-258-musketeers/cubicasa-dalle/trained-dalle:v5', type='model')
-artifact_dir = artifact.download()
+# Generating the image and displaying it on the UI
+def generate_image_and_display():
+    st.write('Dalle designed floorplan!!')
+    image = Image.open('mygraph.png')
+    st.image(image, caption='Your Dream home is ready ;)')
 
-loaded_obj = torch.load(str('./artifacts/trained-dalle:v5/dalle-final.pt'), map_location='cpu')
-dalle_params, vae_params, weights = loaded_obj['hparams'], loaded_obj['vae_params'], loaded_obj['weights']
-vae = DiscreteVAE(**vae_params)
-dalle = DALLE(vae=vae, **dalle_params)
-dalle.load_state_dict(weights)
+# Dalle generating the floor plan
+def generate_floow_plan(input_text, dalle):
+    with st.spinner('Waiting for Model to Run...'):
+        descriptions = list(filter(lambda t: len(t) > 0, input_text))
+        text_token = tokenizer.tokenize(descriptions, 256).squeeze(0)
+        image = dalle.generate_images(text_token[:1], filter_thres = 0.9)
+        st.success('Done!')
 
-with st.spinner('Waiting for Model to Run...'):
-    descriptions = list(filter(lambda t: len(t) > 0, input_text))
-    text_token = tokenizer.tokenize(descriptions, 256).squeeze(0)
-    image = dalle.generate_images(text_token[:1], filter_thres = 0.9)
-st.success('Done!')
+    with st.spinner('Waiting for Visualization to Run...'):
+        arr_ = np.squeeze(image[0].permute(1,2,0).cpu())
+        print(input_text)
+        plt.imshow(arr_)
+        plt.axis('off')
+        plt.savefig("mygraph.png")
 
-with st.spinner('Waiting for Visualization to Run...'):
-    arr_ = np.squeeze(image[0].permute(1,2,0).cpu())
-    print(input_text)
-    plt.imshow(arr_)
-    plt.axis('off')
-    plt.savefig("mygraph.png")
-st.success('Done!')
+downloading_model()
+dalle_t = loading_model()
 
-st.title('Classifying insincere content in Social Media Posts')
-st.write('Evaluate your questions against Quora Model!')
-text_input = st.text_input('Check your Quora Questions', value='', type='default')
+st.title('Enter the description of the Floor plan you want')
+st.write('For Example: One bedroom with two kitchen....')
+text_input = st.text_input('Enter your description, value=', type='default')
 
-image = Image.open('mygraph.png')
-st.image(image, caption='Sunrise by the mountains')
-# Setting up the page
-st.title('Classifying insincere content in Social Media Posts')
-st.write('Evaluate your questions against Quora Model!')
-text_input = st.text_input('Check your Quora Questions', value='', type='default')
+if st.button('Get Floor plan'):
+    generate_floow_plan(text_input, dalle_t)
+    generate_image_and_display()
