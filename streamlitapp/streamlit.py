@@ -70,7 +70,7 @@ dalle_t = loading_model()
 
 st.title('Enter the description of the Floor plan you want')
 st.write('For Example: One bedroom with two kitchen....')
-text_input = st.text_input('Enter your description, value=', type='default')
+text_input = st.text_input('Enter your description', value='', type='default')
 
 if st.button('Get Floor plan'):
     generate_floow_plan(text_input, dalle_t)
