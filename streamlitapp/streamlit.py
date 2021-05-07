@@ -49,6 +49,7 @@ def generate_image_and_display():
     st.write('Dalle designed floorplan!!')
     image = Image.open('mygraph.png')
     st.image(image, caption='Your Dream home is ready ;)')
+    os.remove('mygraph.png')
 
 # Dalle generating the floor plan
 def generate_floow_plan(input_text, dalle):
