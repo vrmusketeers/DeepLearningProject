@@ -15,6 +15,8 @@ https://share.streamlit.io/vrmusketeers/deeplearningproject/main/streamlitapp/st
 2. Training Notebook [ [Github Code](https://github.com/vrmusketeers/DeepLearningProject/blob/main/notebooks/Train_VAE_and_DALLE.ipynb) | [Colab](https://colab.research.google.com/github/vrmusketeers/DeepLearningProject/blob/main/notebooks/Train_VAE_and_DALLE.ipynb) ]
     * train/test split
     * image data augmentation
+    * VAE training
+    * DALL-E training
     * MLOps (with WandB)
         * training pipeline tracking
         * training pipeline run comparisons
