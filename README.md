@@ -1,10 +1,27 @@
 # Zero-Shot Text-to-Image Generation for Housing Floor Plans
 
+## Goal
+
+
+## Summary
+Our data relies on the [CubiCasa5k housing floorplan dataset](https://zenodo.org/record/2613548). We parsed the SVG data to convert the images to annotate rooms types with a particular room color and to generate a textual description of the house. We then trained a discrete variational autoencoder (VAE) to learn the image representation embeddings for the floorplan images. Afterwards, we trained a DALL-E model which accepts the VAE and our text data to learn to generate an image from the input text. Our tech stack uses PyTorch, the dalle-pytorch package, Weights & Biases for MLOps, and Streamlit for our production inference website.
+
+### Presentation
+TODO: fill in
+
 ## Contributors:
 * Shannon Phu, shannon.phu@sjsu.edu, San Jose State University
 * Shiv Kumar Ganesh, shivkumar.ganesh@sjsu.edu, San Jose State University
 * Kumuda BG Murthy, kumuda.benakanahalliguruprasadamurt@sjsu.edu, San Jose State University
 * Raghava D Urs, raghavadevaraje.urs@sjsu.edu, San Jose State University
+
+| Contributor       | Contributions                                                               |
+|-------------------|-----------------------------------------------------------------------------|
+| Shannon Phu       | trained VAE/DALL-E models                                                   |
+| Shiv Kumar Ganesh | Streamlit inference website, inference pipeline, data collection/processing |
+| Kumuda BG Murthy  | data collection/processing, MLOps                                           |
+| Raghava D Urs     | experimented with StackGAN model                                            |
+|                   |                                                                             |
 
 ## Inference Website Demo
 https://share.streamlit.io/vrmusketeers/deeplearningproject/main/streamlitapp/streamlit.py
