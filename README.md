@@ -20,7 +20,7 @@ TODO: fill in
 | Shannon Phu       | trained VAE/DALL-E models                                                   |
 | Shiv Kumar Ganesh | Streamlit inference website, inference pipeline, data collection/processing |
 | Kumuda BG Murthy  | data collection/processing, MLOps                                           |
-| Raghava D Urs     | experimented with StackGAN model, inference pipeline                        |
+| Raghava D Urs     | experimented with StackGAN model, inference pipeline, Expiremented with AWS SageMaker                      |
 
 ## Inference Website Demo
 https://share.streamlit.io/vrmusketeers/deeplearningproject/main/streamlitapp/streamlit.py
@@ -46,5 +46,5 @@ https://share.streamlit.io/vrmusketeers/deeplearningproject/main/streamlitapp/st
 
 ## Documentation
 1. Report on project implementation [Click here](https://github.com/vrmusketeers/DeepLearningProject/blob/main/documentation/Report-Text-to-Image%20Generation%20for%20Housing%20Floor%20Plans.pdf)
-2. Slide deck [Click here]()
+2. Slide deck [Click here](https://github.com/vrmusketeers/DeepLearningProject/blob/main/documentation/Slides%20-%20Zero-Shot%20Text-to-Image%20Generation%20for%20Housing%20Floor%20Plans.pdf)
 
