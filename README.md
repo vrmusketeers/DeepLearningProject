@@ -20,8 +20,7 @@ TODO: fill in
 | Shannon Phu       | trained VAE/DALL-E models                                                   |
 | Shiv Kumar Ganesh | Streamlit inference website, inference pipeline, data collection/processing |
 | Kumuda BG Murthy  | data collection/processing, MLOps                                           |
-| Raghava D Urs     | experimented with StackGAN model, inference pipeline                                            |
-|                   |                                                                             |
+| Raghava D Urs     | experimented with StackGAN model, inference pipeline                        |
 
 ## Inference Website Demo
 https://share.streamlit.io/vrmusketeers/deeplearningproject/main/streamlitapp/streamlit.py
