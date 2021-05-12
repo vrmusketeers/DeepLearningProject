@@ -43,3 +43,8 @@ https://share.streamlit.io/vrmusketeers/deeplearningproject/main/streamlitapp/st
     * notebook inference code in Colab
 4. Website Inference Demo [ [Github Code](https://github.com/vrmusketeers/DeepLearningProject/blob/main/streamlitapp/streamlit.py) | [Demo Link](https://share.streamlit.io/vrmusketeers/deeplearningproject/main/streamlitapp/streamlit.py) ]
     * online website inference in real-time
+
+## Documentation
+1. Report on project implementation [Click here](https://github.com/vrmusketeers/DeepLearningProject/blob/main/documentation/Report-Text-to-Image%20Generation%20for%20Housing%20Floor%20Plans.pdf)
+2. Slide deck [Click here]()
+
