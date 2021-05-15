@@ -1,10 +1,13 @@
 # Zero-Shot Text-to-Image Generation for Housing Floor Plans
 
-## Goal
-
-
 ## Summary
 Our data relies on the [CubiCasa5k housing floorplan dataset](https://zenodo.org/record/2613548). We parsed the SVG data to convert the images to annotate rooms types with a particular room color and to generate a textual description of the house. We then trained a discrete variational autoencoder (VAE) to learn the image representation embeddings for the floorplan images. The VAE aims to reduce the reconstruction loss and KL divergence loss. Afterwards, we trained a DALL-E model which accepts the VAE and our text data to learn to generate an image from the input text. Our DALL-E model aims to reduce the cross entropy loss weighted between text and image. Our tech stack uses PyTorch, the dalle-pytorch package, Weights & Biases for MLOps, and Streamlit for our production inference website.
+
+### Report
+[Report](https://github.com/vrmusketeers/DeepLearningProject/blob/main/documentation/Report-Text-to-Image%20Generation%20for%20Housing%20Floor%20Plans.pdf)
+
+### Slidedeck
+[Slidedeck](https://github.com/vrmusketeers/DeepLearningProject/blob/main/documentation/Slides%20-%20Zero-Shot%20Text-to-Image%20Generation%20for%20Housing%20Floor%20Plans.pdf)
 
 ### Presentation
 Video Presentaion [Click here](https://www.youtube.com/watch?v=v4fOhLyr6Hg)
